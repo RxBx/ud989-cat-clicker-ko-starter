@@ -7,6 +7,15 @@
 </head>
 
 <body>
+    <div>
+        <h2> Cat List</h2>
+        <ul data-bind="foreach: catList">
+        <!-- each KO generated list item remains linked to the corresponding KO obs array item
+        which is then "supplied" to any function that runs on the "click" -->
+            <li data-bind="text: name, click: $parent.updateCurrentCat"></li>
+        </ul>
+    </div>
+    <!-- "with:"  sets a context for next set of data bindings -->
     <div data-bind="with: currentCat">
         <h2 data-bind="text: name"></h2>
         <h3 data-bind="text: catLevel"></h3>
